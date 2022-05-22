@@ -401,6 +401,11 @@
 								"internalType": "enum RequestManager.RequestType",
 								"name": "requestType",
 								"type": "uint8"
+							},
+							{
+								"internalType": "uint128",
+								"name": "chainID",
+								"type": "uint128"
 							}
 						],
 						"internalType": "struct RequestManager.Request",
@@ -499,6 +504,11 @@
 						"internalType": "string",
 						"name": "functionSignature",
 						"type": "string"
+					},
+					{
+						"internalType": "uint128",
+						"name": "chainID",
+						"type": "uint128"
 					}
 				],
 				"name": "observeFunctioncalls",
@@ -532,6 +542,11 @@
 					{
 						"internalType": "uint128",
 						"name": "propertyIndex",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint128",
+						"name": "chainID",
 						"type": "uint128"
 					}
 				],
@@ -660,6 +675,11 @@
 						"internalType": "enum RequestManager.RequestType",
 						"name": "requestType",
 						"type": "uint8"
+					},
+					{
+						"internalType": "uint128",
+						"name": "chainID",
+						"type": "uint128"
 					}
 				],
 				"stateMutability": "view",
@@ -751,10 +771,10 @@
 			]
 		},
 		"contracts/RequestManager.sol": {
-			"keccak256": "0x3dfae2da7b5b4cb5521bfe67331d8df927811582bea203fbc7900530094bfbd3",
+			"keccak256": "0x20cf59cf2f2b21c288ea39c896fc1fb48647af6b76bcf614b2ce90c905f506ba",
 			"urls": [
-				"bzz-raw://39197fabc2960fdf188f9425266413fa60c3aee47333a759bc5e209662e583ec",
-				"dweb:/ipfs/QmXJwzwV46gqcZeDocKU3SjPy2KiPo8Qh4T5dmnWFaryuH"
+				"bzz-raw://ddd682a4f9a5c4ad1f5d36051410fafd295fa0a7d12b1cb73221600eec09dd18",
+				"dweb:/ipfs/QmXG9ZJZbmr3Wf1Gq1f78hAf5Wrg4YVrQLM8tnQkMyDeYH"
 			]
 		},
 		"contracts/centralized-oracle-lib/Chainlink.sol": {
