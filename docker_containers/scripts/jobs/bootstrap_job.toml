@@ -1,0 +1,8 @@
+
+type               = "offchainreporting"
+schemaVersion      = 1
+contractAddress    = "0x61D12EEA21972B297aD92a0fF94aD516190C3ac2"
+p2pBootstrapPeers  = []
+isBootstrapPeer = true
+externalJobID   = "0EEC7E1D-D0D2-476C-A1A8-72DFB6633F06"
+keyBundleID = "c12971f0cd090fd3aa516d28a8b7cf6b8bdde7d81b132e4b7cc3a0fee8817763"

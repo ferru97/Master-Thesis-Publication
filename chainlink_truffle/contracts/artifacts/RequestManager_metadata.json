@@ -1,0 +1,928 @@
+{
+	"compiler": {
+		"version": "0.7.1+commit.f4a555be"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_dataFetchLinkCost",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_DRcontract",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_jobID",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_link",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "ChainlinkCancelled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "ChainlinkFulfilled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "ChainlinkRequested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "msg",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "roundID",
+						"type": "uint64"
+					}
+				],
+				"name": "DataReceived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "rId",
+						"type": "uint64"
+					}
+				],
+				"name": "NewRequest",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DRcontract",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "OCRcontract",
+				"outputs": [
+					{
+						"internalType": "contract OffchainAggregator",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currReq",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "requestID",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "functionCalls",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "string",
+						"name": "pastValue",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint64",
+						"name": "queueID",
+						"type": "uint64"
+					}
+				],
+				"name": "dataCallback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dataFetchLinkCost",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "functionCallsRequestsQueue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "fromBlockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "toBlockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "functionSignature",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_reqID",
+						"type": "uint64"
+					}
+				],
+				"name": "getFunctionCallRequest",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "fromBlockNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "toBlockNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address[]",
+								"name": "contracts",
+								"type": "address[]"
+							},
+							{
+								"internalType": "address payable",
+								"name": "user",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "functionSignature",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "functionCalls",
+								"type": "uint256[]"
+							}
+						],
+						"internalType": "struct RequestManager.FunctionCallsRequest",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_reqID",
+						"type": "uint64"
+					}
+				],
+				"name": "getFunctionCallResult",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMaxRequestLINKCost",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_reqID",
+						"type": "uint64"
+					}
+				],
+				"name": "getPastValueRequest",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "blockNumber",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "referenceContract",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "propertyType",
+								"type": "string"
+							},
+							{
+								"internalType": "uint128",
+								"name": "propertyIndex",
+								"type": "uint128"
+							},
+							{
+								"internalType": "string",
+								"name": "pastValue",
+								"type": "string"
+							}
+						],
+						"internalType": "struct RequestManager.PastValueRequest",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "_reqID",
+						"type": "uint64"
+					}
+				],
+				"name": "getRequest",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "contract ResultCallbackInterface",
+								"name": "requester",
+								"type": "address"
+							},
+							{
+								"internalType": "uint128",
+								"name": "dataHash",
+								"type": "uint128"
+							},
+							{
+								"internalType": "uint256",
+								"name": "OCRstartTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "OCRendTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dataReceivedTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "respondingOracle",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "linkPayed",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum RequestManager.RequestType",
+								"name": "requestType",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct RequestManager.Request",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "req_id",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint128",
+						"name": "data_hash",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint256",
+						"name": "link_payed",
+						"type": "uint256"
+					}
+				],
+				"name": "hashCallback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "jobID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "link",
+				"outputs": [
+					{
+						"internalType": "contract LinkTokenInterface",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "maxReqTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fromBlockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "toBlockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address[]",
+						"name": "contracts",
+						"type": "address[]"
+					},
+					{
+						"internalType": "address payable",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "functionSignature",
+						"type": "string"
+					}
+				],
+				"name": "observeFunctioncalls",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "referenceContract",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "propertyType",
+						"type": "string"
+					},
+					{
+						"internalType": "uint128",
+						"name": "propertyIndex",
+						"type": "uint128"
+					}
+				],
+				"name": "observePastValue",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "pastValueRequestsQueue",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "referenceContract",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "propertyType",
+						"type": "string"
+					},
+					{
+						"internalType": "uint128",
+						"name": "propertyIndex",
+						"type": "uint128"
+					},
+					{
+						"internalType": "string",
+						"name": "pastValue",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ququeSize",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "reqId",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"name": "requestsQueue",
+				"outputs": [
+					{
+						"internalType": "contract ResultCallbackInterface",
+						"name": "requester",
+						"type": "address"
+					},
+					{
+						"internalType": "uint128",
+						"name": "dataHash",
+						"type": "uint128"
+					},
+					{
+						"internalType": "uint256",
+						"name": "OCRstartTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "OCRendTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dataReceivedTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "respondingOracle",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "linkPayed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum RequestManager.RequestType",
+						"name": "requestType",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
+					}
+				],
+				"name": "setMaxReqTime",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "setOCRcontract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tryNewRound",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"params": {
+						"_DRcontract": "Address of the Operator.sol contract used to request data on a given hash ",
+						"_dataFetchLinkCost": "Cost of requesting the corresponding data of a given hash ",
+						"_jobID": "JobID specified on the oracle to interact vith the Operator.sol",
+						"_link": "Link token address"
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"constructor": {
+					"notice": "Smart contract constructor "
+				},
+				"tryNewRound()": {
+					"notice": "Function called to check if OCR-SC is OCR-SC is available to satisfy a new request, and if it is, notify it of it"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RequestManager.sol": "RequestManager"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/OffchainAggregator.sol": {
+			"keccak256": "0xdba78ea51428a7cbce08257b26cb89f53572109e509726191725bb08f326f7ec",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dfb1d6d6a314b666f39ae8dd0753cb5af36b959149183df8678feac76381402d",
+				"dweb:/ipfs/QmYaRchQWAx6NPVVraU9DKixsUHkYaM1Ymgm3sY7cTjbVL"
+			]
+		},
+		"contracts/RequestManager.sol": {
+			"keccak256": "0x3dfae2da7b5b4cb5521bfe67331d8df927811582bea203fbc7900530094bfbd3",
+			"urls": [
+				"bzz-raw://39197fabc2960fdf188f9425266413fa60c3aee47333a759bc5e209662e583ec",
+				"dweb:/ipfs/QmXJwzwV46gqcZeDocKU3SjPy2KiPo8Qh4T5dmnWFaryuH"
+			]
+		},
+		"contracts/centralized-oracle-lib/Chainlink.sol": {
+			"keccak256": "0x478824bd30ceb9ca90a1ab7af243a6d0eb3a4f5108add98b3a8a3654ae2416e8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://307af8ae81b92c37a05891db7b3739185f38967f69d1d0828bf861fd8839a473",
+				"dweb:/ipfs/QmS83QmjgL8SG9hWPSVy5ni8GcraT1QLPLvf2AT5pNFyy3"
+			]
+		},
+		"contracts/centralized-oracle-lib/ChainlinkClient.sol": {
+			"keccak256": "0xcc16e6c4e64779f534fa9f947143c4a4740d6c99d195b2baab8b587d3ae61890",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a58001e8a0145340e548c113ea93a61930d4e852cc5f1ed41ca44e771e8d262",
+				"dweb:/ipfs/QmUET51yhD9ovnqa5t3Yjg8Q1f1h2mdmCVySAdRgjqA4oj"
+			]
+		},
+		"contracts/centralized-oracle-lib/interfaces/ChainlinkRequestInterface.sol": {
+			"keccak256": "0x5461aa441a5578fdb7181169e0060b8cb3e7eb96441140e8353424deae730073",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7a71019411365d5e12056b55669366926caf128e60584269f8bc6715ba93e756",
+				"dweb:/ipfs/QmaRS5tzQcSAkoFaj6aSM4aywiK7mgyVg9Xv9c9jii9rv8"
+			]
+		},
+		"contracts/centralized-oracle-lib/interfaces/ENSInterface.sol": {
+			"keccak256": "0xbcc882630a19fcf5624418e16da7b6120189fdb15d3b9dfa2bcba26bc01681b9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f64fd1d5d2e65667cd22fbf847741cb1bc21fd65d2c2c92672612f15eb7df5c2",
+				"dweb:/ipfs/QmdVDd3sEy5PWX8ZwrhSDyMvwDRoyr9mnZfVeFN6g9BYh3"
+			]
+		},
+		"contracts/centralized-oracle-lib/interfaces/OperatorInterface.sol": {
+			"keccak256": "0xdaf32685096f5656e06d42a0b4b21b40d6cae01785bd6c422d3cd5205490ebf5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ab093d585898036fdff4ce00427630111b3259249ee4b69f28da8c1f30ff9958",
+				"dweb:/ipfs/QmSp1d9FGNZKg1oj9QWWD7a8njmD4akwCa1HJYdDabLtzp"
+			]
+		},
+		"contracts/centralized-oracle-lib/interfaces/OracleInterface.sol": {
+			"keccak256": "0x7ad27eb013cd09554025f0db7a7db9eb1eb020f948fe891d9ed8c0215680f498",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://51425673f2a1fe1d3e4f5a9a8ae04e2ada2e50d627f21eb6bba175588ac17fcc",
+				"dweb:/ipfs/QmQk1kCQbRWuUcv3dffsMZupBLHJDh51pp7WmT94bSarCs"
+			]
+		},
+		"contracts/centralized-oracle-lib/interfaces/PointerInterface.sol": {
+			"keccak256": "0x1a8dd8a731f8a21031d2b77f6dacd71886bd36ba284c124610968d5a4ca32a7d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a1bcb41c6393fa5479539fa99c6042f9e2fbabf7c6b2bd70faef1bd16af3c66d",
+				"dweb:/ipfs/QmejHY1CSfyQtL4MHRAG8CynT1ddZieyiuZHsoPNFjkPLE"
+			]
+		},
+		"contracts/centralized-oracle-lib/vendor/BufferChainlink.sol": {
+			"keccak256": "0x0e32a9fae6007927208e03b9147651715d8174a4a2ed9e5858defd1b35a31494",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://524d45cc07fbf13de659ab052b38a9db415170f35d5229cbe6a1424092fcbc31",
+				"dweb:/ipfs/QmZCugVuCrHW8MqNh6GMtpj8bPb9xcZrbKtFQftitUvPNJ"
+			]
+		},
+		"contracts/centralized-oracle-lib/vendor/CBORChainlink.sol": {
+			"keccak256": "0x08bda450d4dc1d17147fd29810234d35e2c437f1a99be733cfa7ee516db08a48",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d47a793b314afe9cd82fcf05ffe4ebbfa5504c2decc83004edbb3b2069d4f0c3",
+				"dweb:/ipfs/Qmd2YLSiS8xeeXqireh6qJgTTwVY2VscZpv2cQBU8gkEJT"
+			]
+		},
+		"contracts/centralized-oracle-lib/vendor/ENSResolver.sol": {
+			"keccak256": "0xeaeeab9e72f50bbfd1feeaf2c039a6586a04873b419330a7d6ca30d143be037d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://50a275840f614c8c686cb48da9b48960bc439292945b37baf93a337d0cd19b21",
+				"dweb:/ipfs/Qme96jhN3CEZg42fTQgWJiyAt7c99vtcHd7QcKjVzJhn6A"
+			]
+		},
+		"contracts/interfaces/OCRCallback.sol": {
+			"keccak256": "0x653e818f2ee963e40760c5e17bb7d01f46f914528fac7f6674a4f4accc2edc91",
+			"urls": [
+				"bzz-raw://5ef808f9b5af70bbd28651ad237524bc514b90b9f716e570093d13f269049d28",
+				"dweb:/ipfs/QmdEYVSPoKa3MmqgjkKFydkuyaPRMv449fPdCnXticJMhG"
+			]
+		},
+		"contracts/interfaces/ResultCallback.sol": {
+			"keccak256": "0x44cdd93871d7b29db241e1de0e44491d5fbd908cca3000d2648efb15d408fb5a",
+			"urls": [
+				"bzz-raw://9b5e77d5f3c00a6f08ab38cae025c822f7e61b43f3feffd45a8efeb1e5fc1111",
+				"dweb:/ipfs/QmZctfQqAJriLY7azBNeC1585t6k8Fgb9PbBL9k3rdb4Yv"
+			]
+		},
+		"contracts/ocr-lib/AccessControllerInterface.sol": {
+			"keccak256": "0xd4ceebdd967741e37faa51ae1a2991e5cda04814a7969942bb8b9f2ae9ee7ead",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4357a64c1ea99072d7e8b70f8016b69e58a8e4e0b499c7bce8d7e2d5bc4acf33",
+				"dweb:/ipfs/QmPjf68erjuBk4D4WAUBRwfe5H39BrbpqLXJonbBbFKdkr"
+			]
+		},
+		"contracts/ocr-lib/AggregatorInterface.sol": {
+			"keccak256": "0xba09dc6311d25eeff790a255c664b841aa6fd1b96b27325b6822770614420b9a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d00f04715de3285925cc5b7584fdd7b46511b05941ae192a42cf3085983029c9",
+				"dweb:/ipfs/QmQf9ZVv5ecrfNhyk2MKVh2JeSaupLP28pdZPJHXxeJrm5"
+			]
+		},
+		"contracts/ocr-lib/AggregatorV2V3Interface.sol": {
+			"keccak256": "0x77eb17583f7c63473bc8f5c2aa0985856c81f389a0940d6bef975a68743cefd2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c9705839ab4c72e14f1588e612b5156bf03ab185b895e366b8ef11c6fde14739",
+				"dweb:/ipfs/QmQ9atxSPC5JDRxgpsEyFaij9SuhKcoiD2T4qtyp2qMc3R"
+			]
+		},
+		"contracts/ocr-lib/AggregatorV3Interface.sol": {
+			"keccak256": "0xbf591ea627b0a65983211294c476c3c199fff6e31a9894d35b0dc56bac915fc8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://72f810191e4ca2b111e511d344638f6476f39c169a4525544c50f88977d46aae",
+				"dweb:/ipfs/QmNjnjTUjKyPqzae3dBdzVJfhPh3FasP4RVVkvvbFNSTgN"
+			]
+		},
+		"contracts/ocr-lib/AggregatorValidatorInterface.sol": {
+			"keccak256": "0xf14fcf8c739f615cbb76b697a529b2ad9f4aee5eb49d9b8daaf4c0a9faf92e23",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b5d517868a672120830d228214e279e520fe3cd3ae226d72209b71de2d7c3fa8",
+				"dweb:/ipfs/QmPXhFv79TePzmvnQ2zxZwohZBGMYXDMZtvC5XwTRBpKtN"
+			]
+		},
+		"contracts/ocr-lib/LinkTokenInterface.sol": {
+			"keccak256": "0x16bd00aad42cc91c0a8032d569a12469b4d80ae8e2597242371fcff474cd09a2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://88540baab339a05a9d10db2092b75cd32c221e8819970c057836cfdf9b98dd95",
+				"dweb:/ipfs/Qme5BieRLBBDyngMJTZwtA7aBQYau5rRrM6dem6tyVidQR"
+			]
+		},
+		"contracts/ocr-lib/OffchainAggregatorBilling.sol": {
+			"keccak256": "0x29cd4fe96f4c07cf3e02e5f24823c33c12fa50334cd2462c1d56ddd786ac244d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5f9adaf37453dc2d0c64557b980028cea5872ce54d8160553336e735aca0c770",
+				"dweb:/ipfs/QmRMxwNoC8jSmj9ykS9CewDXPJVtn5XAGEWbeD4bYf5BM6"
+			]
+		},
+		"contracts/ocr-lib/Owned.sol": {
+			"keccak256": "0x27ab2db466e4b50ea3992daf2048716227a7eff9c3af1445b06777ef05a5f7b8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f3472b52b535bbe1e38ee6698c422afade4514e22a00ba5f32c7596443a8fdb0",
+				"dweb:/ipfs/QmaM9CR1VpN1fDPqQcdry83VuWZokaVXKu8SsBBPQbivGa"
+			]
+		},
+		"contracts/ocr-lib/TypeAndVersionInterface.sol": {
+			"keccak256": "0x2201288319435fa14042cd62ba733b913a5f329bdd3af9bb9c6a1bfdd0d7bbbd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://11b6bca74fe1a7bbb6c3924aa8f183092c9550d2e11f0208a48f1b5820a4f841",
+				"dweb:/ipfs/QmUHKZmsyze32Lo4WnUEydbqtHKDUQJ6nKPcPLxgRPfsUQ"
+			]
+		}
+	},
+	"version": 1
+}

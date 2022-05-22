@@ -1,0 +1,14 @@
+ReqManger        :  0xfaFB7AB9B1dbafb8A6Da28AD367A21d954866Ad5
+DR address:      :  0x592c31dD9E458e351a1693FfCd4675e1B855EC6
+
+Counters:   ["0x29709Ae561326A374cFeB15bdD6588a3647138d7","0x575b9B185bF3Ee6a3481fb51832fe3B3DAa8B232"]
+            2592000
+
+
+sudo geth --datadir blockchain3 --dev --mine --allow-insecure-unlock --ws --http --http.addr "0.0.0.0" --ws.addr "0.0.0.0" --http.corsdomain "*" --http.api web3,eth,debug,personal,net --ws --ws.api web3,eth,debug,personal,net --ws.origins='*' --networkid 1337 --vmdebug console
+
+NODE_ENDPOINT=http://192.168.1.2:8545 docker-compose up
+
+sudo remixd -s /home/ferru97/Desktop/Projects/Master-Thesis/chainlink_truffle2 --remix-ide https://remix.ethereum.org
+
+0x780442Fb1a4588FaAf8F154839D506B7E3B7e8bf 66

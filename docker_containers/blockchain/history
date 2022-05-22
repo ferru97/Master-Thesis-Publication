@@ -1,0 +1,5 @@
+eth.accounts
+eth.sendTransaction({from: "0x1f43ffab44dd517ea90989a4b88efe332d30bbf0", to: "0xFF440153b4D173267015ed95A68429b57fE4eE65", value: "150000000000000000000"})
+eth.blockNumber
+exir
+eth.blockNumber
