@@ -1,0 +1,24 @@
+
+type = "offchainreporting"
+schemaVersion = 1
+contractAddress = "0x7aFC462040e316F558b9d18137F62b1e63fb9656"
+p2pPeerID = "12D3KooWECi2kMb4DVR6J76McVZAoAQ23uskz9Qa1Hrg2vi5nDQF"
+p2pBootstrapPeers = [
+"/ip4/10.5.0.15/tcp/3002/p2p/12D3KooWSHeFvD8SDPY4a1vec3aMCujcVTakHVBjwixungR2fiCR"
+]
+isBootstrapPeer = false
+keyBundleID = "7279c903186f22f805dc31e2fad9baeda0c0251c0a654a879af62e591692ffe8"
+transmitterAddress = "0x502690dA6dA7bc6e0942E7bBad5be272C1a764C5"
+observationTimeout = "20s"
+blockchainTimeout = "20s"
+contractConfigTrackerSubscribeInterval = "2m0s"
+contractConfigTrackerPollInterval = "1m0s"
+contractConfigConfirmations = 1
+observationSource = """
+    // data source 1
+    eth_spent_hash          [type=http method=GET url="http://10.5.0.6:3000/getDataHash?reqmanager=0xa2217E0ee2dd9Db51489F30EDBea42cb5EDD3d40&oid=0x502690dA6dA7bc6e0942E7bBad5be272C1a764C5"]
+
+    eth_spent_hash
+"""
+maxTaskDuration = "0s"
+externalJobID = "0eec7e1d-d0d2-476c-a1a8-72dfb6633f06"
