@@ -28,7 +28,7 @@ services:
       - PEER_ID=p2p_12D3KooWALTnn7MtMcwhvYbZ4m5W6f7pKDFJGjHnQJyGX1d4RUHe
       - CHAINLINK_PORT=6691
       - CLIENT_NODE_URL=http://localhost:6691
-	  - P2P_LISTEN_PORT=3002
+      - P2P_LISTEN_PORT=3002
     ports:
       - 7001:6691
     volumes:
@@ -55,7 +55,7 @@ services:
       - DATABASE_URL=postgresql://chainlink:chainlink123@postgres:5432/chainlink2?sslmode=disable
       - CHAINLINK_PORT=6692
       - CLIENT_NODE_URL=http://localhost:6692
-	  - P2P_LISTEN_PORT=3003
+      - P2P_LISTEN_PORT=3003
     ports:
       - 7002:6692
     volumes:

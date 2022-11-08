@@ -1,5 +1,5 @@
 #!/bin/bash
-count=11
+count=2
 for i in $(seq $count); do
 	echo "Installing expect on Oracle $i"
     node="chainlink_node$i"
