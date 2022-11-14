@@ -1,8 +1,8 @@
 
 type               = "offchainreporting"
 schemaVersion      = 1
-contractAddress    = "0x7aFC462040e316F558b9d18137F62b1e63fb9656"
+contractAddress    = "0xcc9d88e18b45fc8c3a881AB7C15a824cE9570cB8"
 p2pBootstrapPeers  = []
 isBootstrapPeer = true
 externalJobID   = "0EEC7E1D-D0D2-476C-A1A8-72DFB6633F06"
-keyBundleID = "c12971f0cd090fd3aa516d28a8b7cf6b8bdde7d81b132e4b7cc3a0fee8817763"
+keyBundleID = "165895a83f36c6056df3089c8f71aaf61a4f9f4322c04ff492a62d460504a177"

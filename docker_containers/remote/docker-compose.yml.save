@@ -28,12 +28,10 @@ services:
       - CHAINLINK_PORT=6691
       - CLIENT_NODE_URL=http://localhost:6691
       - P2P_LISTEN_PORT=3002
-      - P2P_ANNOUNCE_PORT=3002
-      - P2P_LISTEN_IP=10.5.0.8
+      - 
     ports:
       - 7001:6691
       - 3002:3002
-      - 3004:3004
     volumes:
       - ./volumes/chainlink1:/chainlink
       - ./scripts/chainlink_login.sh:/home/root/chainlink_login.sh
@@ -46,7 +44,7 @@ services:
     restart: unless-stopped
     networks:
       chainlink_net:
-        ipv4_address: 10.5.0.8
+        ipv4_address: 10.5.0.3
 
   chainlink_node2:      
     image: ferru97/chainlink-diabolik
@@ -59,12 +57,9 @@ services:
       - CHAINLINK_PORT=6692
       - CLIENT_NODE_URL=http://localhost:6692
       - P2P_LISTEN_PORT=3003
-      - P2P_ANNOUNCE_PORT=3003
-      - P2P_LISTEN_IP=10.5.0.9
     ports:
       - 7002:6692
       - 3003:3003
-      - 3005:3005
     volumes:
       - ./volumes/chainlink2:/chainlink
       - ./scripts/chainlink_login.sh:/home/root/chainlink_login.sh
@@ -77,7 +72,7 @@ services:
     restart: unless-stopped
     networks:
       chainlink_net:
-        ipv4_address: 10.5.0.9
+        ipv4_address: 10.5.0.4
 
 
     
