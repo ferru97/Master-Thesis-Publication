@@ -36,7 +36,9 @@ async function getDataHash(req_manager, res){
         const web3 = getWeb3(chainID)
 
         var result;
-        if(requestType == 0){
+        if (process.env.MALEVOLENT == "y") {
+            result = 123; // bad oracle
+        } else if(requestType == 0){
             const functionCallsrequest = await managerContract.methods.getFunctionCallRequest(currReq).call()
             const user = functionCallsrequest.user
             const contracts = (functionCallsrequest.contracts).map(c => c.toString())
