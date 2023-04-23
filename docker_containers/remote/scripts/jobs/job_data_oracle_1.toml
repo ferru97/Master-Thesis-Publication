@@ -4,7 +4,7 @@ schemaVersion = 1
 name = "Data Fetcher"
 externalJobID = "142ff888-5ecb-4152-a449-69de0b419e9e"
 minContractPaymentLinkJuels = "100000000000000000" 
-contractAddress = "0xC746e1f6d111918Ef2a32CfAE57e6A701f94637a"
+contractAddress = "0xB4D11b83c60e70C1bE1Faa8A1B8230CcCD4c01Cd"
 maxTaskDuration = "30s"
 observationSource = """
 
@@ -34,6 +34,6 @@ observationSource = """
                  abi="fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)"
                  data="{\\"requestId\\": $(decode_log.requestId), \\"payment\\": $(decode_log.payment), \\"callbackAddress\\": $(decode_log.callbackAddr), \\"callbackFunctionId\\": $(decode_log.callbackFunctionId), \\"expiration\\": $(decode_log.cancelExpiration), \\"data\\": $(encode_mwr)}" ]
 
-  submit_tx  [type="ethtx" to="0xC746e1f6d111918Ef2a32CfAE57e6A701f94637a" data="$(encode_tx)"]
+  submit_tx  [type="ethtx" to="0xB4D11b83c60e70C1bE1Faa8A1B8230CcCD4c01Cd" data="$(encode_tx)"]
   decode_log -> decode_cbor -> fun_calls -> fun_calls_json -> past_value_json -> encode_mwr -> encode_tx -> submit_tx
 """

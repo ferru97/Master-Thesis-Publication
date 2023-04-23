@@ -47,39 +47,6 @@ services:
     networks:
       chainlink_net:
         ipv4_address: 10.5.0.8
-
-  chainlink_node2:      
-    image: ferru97/chainlink-diabolik
-    container_name: chainlink_node2
-    command: chainlink local n -p /chainlink/.password -a /chainlink/.api
-    env_file:
-      - ./chainlink.env
-    environment:
-      - DATABASE_URL=postgresql://chainlink:chainlink123@postgres:5432/chainlink2?sslmode=disable
-      - CHAINLINK_PORT=6692
-      - CLIENT_NODE_URL=http://localhost:6692
-      - P2P_LISTEN_PORT=3003
-      - P2P_ANNOUNCE_PORT=3003
-      - P2P_LISTEN_IP=10.5.0.9
-    ports:
-      - 7002:6692
-      - 3003:3003
-      - 3005:3005
-    volumes:
-      - ./volumes/chainlink2:/chainlink
-      - ./scripts/chainlink_login.sh:/home/root/chainlink_login.sh
-      - ./scripts/chainlink_delete_job.sh:/home/root/chainlink_delete_job.sh
-      - ./scripts/jobs/job_ocr_oracle_2.toml:/home/root/ocr_job.toml
-      - ./scripts/jobs/job_data_oracle_2.toml:/home/root/data_job.toml
-    links:
-      ###- "geth"
-      - "postgres"
-    restart: unless-stopped
-    networks:
-      chainlink_net:
-        ipv4_address: 10.5.0.9
-
-
     
   web_server:
     build:

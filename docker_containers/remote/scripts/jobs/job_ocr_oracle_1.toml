@@ -1,10 +1,10 @@
 
 type = "offchainreporting"
 schemaVersion = 1
-contractAddress = "0xcc9d88e18b45fc8c3a881AB7C15a824cE9570cB8"
+contractAddress = "0x6a20dd7b0DF6281A89B55413A6185838A962F352"
 p2pPeerID = "12D3KooWSYN5z9AgFTQSvtWzWq3EFEUnD3QuFjK2RQc8szXxAkBA"
 p2pBootstrapPeers = [
-"/ip4/151.45.238.85/tcp/3004/p2p/12D3KooWM1Jr6o9g5oZC5UYWAkBcmKajTrG85v5WYnE1q5MigmsM"
+"/ip4/151.50.139.56/tcp/3004/p2p/12D3KooWEwgmmTeLc6SNGFCwfA58MocFrs7vWbL3gsUeTy5RQSPG"
 ]
 isBootstrapPeer = false
 keyBundleID = "f2fa0dde56ef50908b45ac4108661fe4ed176f252e350ba06d776633990f757d"
@@ -16,7 +16,7 @@ contractConfigTrackerPollInterval = "1m0s"
 contractConfigConfirmations = 1
 observationSource = """
     // data source 1
-    eth_spent_hash          [type=http method=GET url="http://10.5.0.6:3000/getDataHash?reqmanager=0xcEa01A70260d5d3f3c07DA33082c8FC24b6B716b&oid=0xA807125d34cE6c2B21Edd792b5D8811886F1255C"]
+    eth_spent_hash          [type=http method=GET url="http://10.5.0.6:3000/getDataHash?reqmanager=0x5dDB2365Ba820841D11182d65D0F46B030beE258&oid=0xA807125d34cE6c2B21Edd792b5D8811886F1255C"]
 
     eth_spent_hash
 """
