@@ -24,7 +24,7 @@ services:
     env_file:
       - ./chainlink.env
     environment:
-      - DATABASE_URL=postgresql://chainlink:chainlink123@postgres:5432/chainlink1?sslmode=disable
+      - DATABASE_URL=postgresql://chainlink:chainlink123@postgres:5432/chainlink?sslmode=disable
       - CHAINLINK_PORT=6691
       - CLIENT_NODE_URL=http://localhost:6691
       - P2P_LISTEN_PORT=3002
